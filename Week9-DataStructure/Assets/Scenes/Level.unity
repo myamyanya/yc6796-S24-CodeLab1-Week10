@@ -3761,6 +3761,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd986c18bc1a0d649b0f14e69eeea350, type: 3}
+--- !u!114 &2007139254 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 676587302259487577, guid: e2fe2d4e03377e349aa2b929014b8b3a, type: 3}
+  m_PrefabInstance: {fileID: 4270097842693371724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2008405225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,6 +4104,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 146306574286088301, guid: e2fe2d4e03377e349aa2b929014b8b3a, type: 3}
+      propertyPath: income
+      value: 
+      objectReference: {fileID: 2007139254}
+    - target: {fileID: 146306574286088301, guid: e2fe2d4e03377e349aa2b929014b8b3a, type: 3}
       propertyPath: endPoint
       value: 
       objectReference: {fileID: 1600517579}
@@ -4136,9 +4151,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 676587302259487577, guid: e2fe2d4e03377e349aa2b929014b8b3a, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 676587302259487577, guid: e2fe2d4e03377e349aa2b929014b8b3a, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4189502936016886008, guid: e2fe2d4e03377e349aa2b929014b8b3a, type: 3}
       propertyPath: m_Name
       value: GameManagerHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015803626214661489, guid: e2fe2d4e03377e349aa2b929014b8b3a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015803626214661489, guid: e2fe2d4e03377e349aa2b929014b8b3a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 6533022313758399187, guid: e2fe2d4e03377e349aa2b929014b8b3a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

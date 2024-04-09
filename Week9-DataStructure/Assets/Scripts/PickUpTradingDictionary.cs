@@ -9,7 +9,7 @@ public class PickUpTradingDictionary : MonoBehaviour
     public Dictionary<string, int> resourcesOwned = new Dictionary<string, int>();
     // Create the dictionary for recording resources values
     private Dictionary<string, int> resourcesValue = new Dictionary<string, int>();
-    private int totalValue = 0;
+    public int totalValue = 0;
     
     // Create the dictionary for storing products being traded
     private Dictionary<string, int> productsOwned = new Dictionary<string, int>();
@@ -97,5 +97,7 @@ public class PickUpTradingDictionary : MonoBehaviour
         }
         
         Debug.Log("Total value of the inventory: " + totalValue);
+        
+        GameManager.instance.income.text = "Your total income is " + totalValue + " !!";
     }
 }

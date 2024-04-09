@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI display;
     public Button sellButton;
 
+    public TextMeshProUGUI income;
+
     private void Awake()
     {
         if (instance == null)
@@ -70,8 +72,9 @@ public class GameManager : MonoBehaviour
                 display.text = " ";
             }
 
-            // Hide the sell button
+            // Hide the sell button and money UI display
             sellButton.gameObject.SetActive(false);
+            income.text = " ";
         }
         else
         {
@@ -91,7 +94,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("End");
         
-        // Show sell button
+        // Show sell button and money UI
         sellButton.gameObject.SetActive(true);
         sellButton.GetComponent<Button>().enabled = true;
     }
