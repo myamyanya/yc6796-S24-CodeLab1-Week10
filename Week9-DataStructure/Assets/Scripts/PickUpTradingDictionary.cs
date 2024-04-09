@@ -34,9 +34,16 @@ public class PickUpTradingDictionary : MonoBehaviour
         {
             case "Coin":
                 //Debug.Log("Coin + 1");
-                AddResource(other.gameObject.tag, 1, other.gameObject);
+                AddResource(other.gameObject.tag, 10, other.gameObject);
                 break;
             case "Berry":
+                AddResource(other.gameObject.tag, 3, other.gameObject);
+                break;
+            case "Orange":
+                AddResource(other.gameObject.tag, 2, other.gameObject);
+                break;
+            case "Leaf":
+                AddResource(other.gameObject.tag, 1, other.gameObject);
                 break;
         }
     }

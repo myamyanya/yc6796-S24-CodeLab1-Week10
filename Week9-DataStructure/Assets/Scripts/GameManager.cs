@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 {
     // For checking the status of the game
     public Status status;
+    private bool isEnd = false;
     
     // For checking the end state
     public GameObject endPoint;
@@ -66,9 +67,10 @@ public class GameManager : MonoBehaviour
         }
         
         // If the game reaches the end stage, end the game
-        if (status == Status.End)
+        if (status == Status.End && !isEnd)
         {
             EndGame();
+            isEnd = true;
         }
     }
 
