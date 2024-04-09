@@ -94,6 +94,5 @@ public class GameManager : MonoBehaviour
         // Show sell button
         sellButton.gameObject.SetActive(true);
         sellButton.GetComponent<Button>().enabled = true;
-        
     }
 }

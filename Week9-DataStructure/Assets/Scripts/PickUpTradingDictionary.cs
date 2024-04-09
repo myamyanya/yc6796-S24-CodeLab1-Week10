@@ -7,6 +7,9 @@ public class PickUpTradingDictionary : MonoBehaviour
 {
     // Create the dictionary for storing resources
     public Dictionary<string, int> resourcesOwned = new Dictionary<string, int>();
+    // Create the dictionary for recording resources values
+    private Dictionary<string, int> resourcesValue = new Dictionary<string, int>();
+    private int totalValue = 0;
     
     // Create the dictionary for storing products being traded
     private Dictionary<string, int> productsOwned = new Dictionary<string, int>();
@@ -27,6 +30,15 @@ public class PickUpTradingDictionary : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // Reset resources values
+        resourcesValue.Add("Coin", 100);
+        resourcesValue.Add("Berry", 10);
+        resourcesValue.Add("Orange", 5);
+        resourcesValue.Add("Leaf", 1);
+    }
+
     // If the player collides with an interactive item, pick it up
     private void OnCollisionEnter(Collision other)
     {
@@ -34,7 +46,7 @@ public class PickUpTradingDictionary : MonoBehaviour
         {
             case "Coin":
                 //Debug.Log("Coin + 1");
-                AddResource(other.gameObject.tag, 10, other.gameObject);
+                AddResource(other.gameObject.tag, 1, other.gameObject);
                 break;
             case "Berry":
                 AddResource(other.gameObject.tag, 3, other.gameObject);
@@ -65,9 +77,25 @@ public class PickUpTradingDictionary : MonoBehaviour
         // Destroy after picked up
         Destroy(item);
     }
-
+    
+    // Sell all the resources in exchange for money
     public void SellResources()
     {
         Debug.Log("Try to sell something...");
+
+        // Checking the resources values
+        foreach (KeyValuePair<string, int> item in resourcesOwned)
+        {
+            string itemName = item.Key;
+            int itemAmt = item.Value;
+
+            if (resourcesValue.ContainsKey(itemName))
+            {
+                int itemValue = resourcesValue[itemName];
+                totalValue += itemValue * itemAmt;
+            }
+        }
+        
+        Debug.Log("Total value of the inventory: " + totalValue);
     }
 }
