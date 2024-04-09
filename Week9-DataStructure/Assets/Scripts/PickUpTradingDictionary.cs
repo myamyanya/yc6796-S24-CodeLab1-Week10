@@ -65,4 +65,9 @@ public class PickUpTradingDictionary : MonoBehaviour
         // Destroy after picked up
         Destroy(item);
     }
+
+    public void SellResources()
+    {
+        Debug.Log("Try to sell something...");
+    }
 }

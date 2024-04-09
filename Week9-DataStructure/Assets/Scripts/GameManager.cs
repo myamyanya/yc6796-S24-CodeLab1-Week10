@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum Status
 {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     
     // Wiring the UI
     public TextMeshProUGUI display;
+    public Button sellButton;
 
     private void Awake()
     {
@@ -50,19 +52,30 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // For displaying the resources 
-        if (SceneManager.GetActiveScene().name != "End" && 
-            PickUpTradingDictionary.instance.resourcesOwned != null)
+        if (SceneManager.GetActiveScene().name != "End")
         {
-            display.text = "You have ... \n";
-
-            foreach (KeyValuePair<string, int> keyValuePair in PickUpTradingDictionary.instance.resourcesOwned)
+            if (PickUpTradingDictionary.instance.resourcesOwned != null)
             {
-                display.text += "\n" + keyValuePair.Key + " : " +
-                                PickUpTradingDictionary.instance.resourcesOwned[keyValuePair.Key];
+                display.text = "You have ... \n";
+
+                foreach (KeyValuePair<string, int> keyValuePair in PickUpTradingDictionary.instance.resourcesOwned)
+                {
+                    display.text += "\n" + keyValuePair.Key + " : " +
+                                    PickUpTradingDictionary.instance.resourcesOwned[keyValuePair.Key];
+                }
             }
+            else
+            {
+                // Don't show inventory if it is empty
+                display.text = " ";
+            }
+
+            // Hide the sell button
+            sellButton.gameObject.SetActive(false);
         }
         else
         {
+            // Hide inventory
             display.text = " ";
         }
         
@@ -77,5 +90,10 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         SceneManager.LoadScene("End");
+        
+        // Show sell button
+        sellButton.gameObject.SetActive(true);
+        sellButton.GetComponent<Button>().enabled = true;
+        
     }
 }
